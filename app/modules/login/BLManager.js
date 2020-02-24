@@ -20,6 +20,7 @@ module.exports = {
         if (error) return error.details[0].message;
 
          let findUser = await User.findOne({email: req.body.email});
+         console.log('findUser', findUser)
         if (!findUser) return utils.createResponseObject(null, constants.INVALID_EMAIL_OR_PASSWORD, 400);
 
         const validpassword = await bcrypt.compare(req.body.password, findUser.password)
