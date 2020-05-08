@@ -7,10 +7,10 @@ const reset = require('./routes/update');
 const express = require('express');
 const app = express();
 
-if(!config.get('jwtprivatekey')){
-    console.error('Fatal Error: jwtprivate key is not defined');
-    process.exit(1);
-}
+// if(!config.get('jwtprivatekey')){
+//     console.error('Fatal Error: jwtprivate key is not defined');
+//     process.exit(1);
+// }
 
 mongoose.connect('mongodb://localhost/registration')
     .then(() => console.log('Connected to mongodb'))
