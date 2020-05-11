@@ -8,5 +8,6 @@ module.exports = {
 
     return responseObj;
   },
-  url: "your mongo db atlas url",
+  url:
+    "mongodb+srv://admin:admin@cluster0-gar5o.mongodb.net/test?retryWrites=true&w=majority",
 };
