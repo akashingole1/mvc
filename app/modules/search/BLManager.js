@@ -10,12 +10,10 @@ module.exports = {
    * @param req
    * @param res
    */
-  update: async function (req, res) {
-    let updateUser = await User.updateOne(
-      { name: "Akash Ingole" },
-      { email: "ingoleakash19@gmail.com" }
-    );
-    console.log("updateUser", updateUser);
-    return utils.createResponseObject({}, "user updated successfully", 200);
+  search: async function (req, res) {
+    let findUser = await User.find({
+      name: { $regex: req.body.search, $options: "i" },
+    });
+    return utils.createResponseObject(findUser, "Search Successful", 200);
   },
 };
