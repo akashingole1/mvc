@@ -11,14 +11,18 @@ module.exports = {
    * @param res
    */
   delete: async function (req, res) {
-    let removeUser = await User.deleteOne({ email: "johndoe@gmail.com" });
+    // let removeUser = await User.deleteOne({ email: "johndoe@gmail.com" });
+    // return utils.createResponseObject(
+    //   removeUser,
+    //   "User removed successfully",
+    //   200
+    // );
+
+    let removeUser = await User.deleteMany({ age: { $eq: 20 } });
     return utils.createResponseObject(
       removeUser,
       "User removed successfully",
       200
     );
-
-    // let removeUser = await User.deleteMany({ age: { $eq: 18 } });
-    // return utils.createResponseObject(removeUser, "User removed successfully", 200);
   },
 };

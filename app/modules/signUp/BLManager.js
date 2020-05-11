@@ -28,6 +28,7 @@ module.exports = {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
+      age: req.body.age,
     });
 
     const salt = await bcrypt.genSalt(10);
