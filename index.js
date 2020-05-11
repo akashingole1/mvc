@@ -7,6 +7,7 @@ const reset = require("./routes/update");
 const deleted = require("./routes/delete");
 const pagination = require("./routes/pagination");
 const search = require("./routes/search");
+const utils = require("./app/utils/index");
 const express = require("express");
 const app = express();
 
@@ -16,10 +17,7 @@ const app = express();
 // }
 
 mongoose
-  .connect(
-    "mongodb+srv://admin:admin@cluster0-gar5o.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(utils.url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to mongodb"))
   .catch(() => console.error("Could not connect to mongodb"));
 

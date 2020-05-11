@@ -1,13 +1,12 @@
 module.exports = {
-    createResponseObject: function (data, message, code) {
+  createResponseObject: function (data, message, code) {
+    let responseObj = {
+      responseData: data,
+      message: message,
+      code: code,
+    };
 
-        let responseObj = {
-            responseData: data,
-            message: message,
-            code: code
-        };
-
-
-        return responseObj;
-    }
-}
+    return responseObj;
+  },
+  url: "your mongo db atlas url",
+};
