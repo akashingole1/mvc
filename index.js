@@ -1,5 +1,3 @@
-const Joi = require("joi");
-const config = require("config");
 const mongoose = require("mongoose");
 const users = require("./routes/user");
 const auth = require("./routes/auth");
@@ -22,8 +20,20 @@ mongoose
   .catch(() => console.error("Could not connect to mongodb"));
 
 app.use(express.json());
+app.use("/assets", express.static("assets"));
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.send(`Api's working fine!`);
+  res.render("pages/index");
+  // res.send(`Api's working fine!`);
+});
+app.get("/about", (req, res) => {
+  const features = [
+    { id: 1, feature: "Templating using ejs" },
+    { id: 2, feature: "CRUD operation using mvc pattern" },
+    { id: 3, feature: "Pagination and search api" },
+  ];
+  res.render("pages/about", { features: features });
 });
 
 //signup api
