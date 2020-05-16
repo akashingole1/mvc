@@ -5,6 +5,7 @@ const reset = require("./routes/update");
 const deleted = require("./routes/delete");
 const pagination = require("./routes/pagination");
 const search = require("./routes/search");
+const upload = require("./routes/upload");
 const utils = require("./app/utils/index");
 const express = require("express");
 const app = express();
@@ -25,6 +26,7 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("pages/index");
+  // res.sendFile(__dirname + 'index.html')
   // res.send(`Api's working fine!`);
 });
 app.get("/about", (req, res) => {
@@ -48,6 +50,8 @@ app.use("/api/delete", deleted);
 app.use("/api/paginated", pagination);
 //search api
 app.use("/api/search", search);
+//upload image api
+app.use("/api/upload", upload);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`server is listening on port ${port}`));
